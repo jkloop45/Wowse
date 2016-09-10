@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wows!", "Wows!\Wows!.csproj", "{5183D62F-1758-42D6-AEA4-8A3E4BA7E344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeanCloudInteraction", "LeanCloudThreatment\LeanCloudInteraction.csproj", "{D8FBA24F-9037-4101-90ED-CC215FC255D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{68342B21-D904-44E0-B8D6-1418927C220A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWebsiteInteration", "WWebsiteInteration\WWebsiteInteration.csproj", "{797F2E6C-A030-4DAC-877D-7A5016E4033A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Language", "Language\Language.csproj", "{2EAB0B33-0B3C-430E-B238-6E55B3D1EC2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loger", "Loger\Loger.csproj", "{976D57AE-1D0F-4E6C-BF6C-0D7CC713FFBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5183D62F-1758-42D6-AEA4-8A3E4BA7E344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5183D62F-1758-42D6-AEA4-8A3E4BA7E344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5183D62F-1758-42D6-AEA4-8A3E4BA7E344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5183D62F-1758-42D6-AEA4-8A3E4BA7E344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8FBA24F-9037-4101-90ED-CC215FC255D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8FBA24F-9037-4101-90ED-CC215FC255D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8FBA24F-9037-4101-90ED-CC215FC255D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8FBA24F-9037-4101-90ED-CC215FC255D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68342B21-D904-44E0-B8D6-1418927C220A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68342B21-D904-44E0-B8D6-1418927C220A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68342B21-D904-44E0-B8D6-1418927C220A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68342B21-D904-44E0-B8D6-1418927C220A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{797F2E6C-A030-4DAC-877D-7A5016E4033A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797F2E6C-A030-4DAC-877D-7A5016E4033A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797F2E6C-A030-4DAC-877D-7A5016E4033A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797F2E6C-A030-4DAC-877D-7A5016E4033A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EAB0B33-0B3C-430E-B238-6E55B3D1EC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EAB0B33-0B3C-430E-B238-6E55B3D1EC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EAB0B33-0B3C-430E-B238-6E55B3D1EC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EAB0B33-0B3C-430E-B238-6E55B3D1EC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976D57AE-1D0F-4E6C-BF6C-0D7CC713FFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976D57AE-1D0F-4E6C-BF6C-0D7CC713FFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976D57AE-1D0F-4E6C-BF6C-0D7CC713FFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976D57AE-1D0F-4E6C-BF6C-0D7CC713FFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

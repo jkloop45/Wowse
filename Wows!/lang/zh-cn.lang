@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WowsLanguagePackage>
+    <SignIn>登陆</SignIn>
+    <SignUp>注册</SignUp>
+    <SignOut>注销</SignOut>
+    <UserName>用户名</UserName>
+	<Password>密码</Password>
+	<Home>主页</Home>
+	<Plugin>插件</Plugin>
+	<GameSettings>游戏设置</GameSettings>
+	<Settings>设置</Settings>
+	<LaunchGame>启动游戏</LaunchGame>
+	<News>新闻</News>
+	<Events>活动</Events>
+    <Account>账户</Account>
+    <CanNotConnect>然而连不上网...</CanNotConnect>
+    <Cancle>取消</Cancle>
+    <Email>邮件地址</Email>
+	<SignUpOrSignIn>注册或登录</SignUpOrSignIn>
+	<SignUpSucceed>注册成功!</SignUpSucceed>
+	<SignUpFailed>注册失败</SignUpFailed>
+	<UsernameClaim>4~16个字符,不能有汉字</UsernameClaim>
+	<PasswordClaim>6+字符,只能包含数字,字母以及常用符号</PasswordClaim>
+	<EmailAddressToken>邮件地址已被使用</EmailAddressToken>
+	<FormatIncorrect>格式错误</FormatIncorrect>
+	<MailAddressRequire>邮件地址为空</MailAddressRequire>
+	<UserNameRequire>用户名为空</UserNameRequire>
+	<PasswordRequire>密码为空</PasswordRequire>
+	<EmailFormatErr>邮箱格式错误</EmailFormatErr>
+	<UsernamePasswordError>用户名或密码错误</UsernamePasswordError>
+    <AudioPlugin>音效插件</AudioPlugin>
+    <UIPlugin>UI插件</UIPlugin>
+    <ShipPaintingPlugin>舰船涂装</ShipPaintingPlugin>
+    <GameContentPlugin>游戏内容</GameContentPlugin>
+	<Install>安装插件</Install>
+	<UninstallPlugin>卸载插件</UninstallPlugin>
+	<UseDefaultModFolder>使用默认mod文件夹(res_mod)</UseDefaultModFolder>
+	<UseCustomModFolder>使用自定义mod文件夹</UseCustomModFolder>
+	<WowsDirectory>战舰世界游戏目录</WowsDirectory>
+    <ChinaSever>中国</ChinaSever>
+	<InstalledPlugin>已安装的插件</InstalledPlugin>
+	<PluginDescription>插件描述</PluginDescription>
+	<PluginType>插件类型</PluginType>
+	<PluginAuthor>插件作者</PluginAuthor>
+	<SupportVersion>支持的游戏版本</SupportVersion>
+	<Version>插件版本</Version>
+</WowsLanguagePackage>
