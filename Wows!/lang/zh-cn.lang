@@ -28,6 +28,8 @@
 	<PasswordRequire>密码为空</PasswordRequire>
 	<EmailFormatErr>邮箱格式错误</EmailFormatErr>
 	<UsernamePasswordError>用户名或密码错误</UsernamePasswordError>
+	<PercentageOfVictory>胜率</PercentageOfVictory>
+	<Ranking>排名</Ranking>
     <AudioPlugin>音效插件</AudioPlugin>
     <UIPlugin>UI插件</UIPlugin>
     <ShipPaintingPlugin>舰船涂装</ShipPaintingPlugin>

@@ -30,6 +30,9 @@ namespace Language
         public const string EmailAddressToken = "EmailAddressToken";
         public const string EmailFormatErr = "EmailFormatErr";
 
+        public const string PercentageOfVictory = "PercentageOfVictory";
+        public const string Ranking = "Ranking";
+
         public const string UsernameClaim = "UsernameClaim";
         public const string PasswordClaim = "PasswordClaim";
 

@@ -41,6 +41,16 @@ namespace Controls
                 tBox.Text = value;
             }
         }
+        public Brush TboxForeground
+        {
+            get { return tBox.Foreground; }
+            set { tBox.Foreground = value; }
+        }
+        public Brush HintForground
+        {
+            get { return hint.Foreground; }
+            set { hint.Foreground = value; }
+        }
         public event TextChangedEventHandler TextChanged;
 
         public HintTextBox()
