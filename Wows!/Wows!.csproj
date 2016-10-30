@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AVOSCloud.NetFx45, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -79,6 +82,7 @@
     <Compile Include="SignInUp.xaml.cs">
       <DependentUpon>SignInUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MashPopup.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,9 +122,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="lang\zh-cn.lang">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,14 +145,23 @@
       <Project>{d8fba24f-9037-4101-90ed-cc215fc255d8}</Project>
       <Name>LeanCloudInteraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Loger\Loger.csproj">
+    <ProjectReference Include="..\Logcat\Logcat.csproj">
       <Project>{976d57ae-1d0f-4e6c-bf6c-0d7cc713ffbd}</Project>
-      <Name>Loger</Name>
+      <Name>Logcat</Name>
     </ProjectReference>
     <ProjectReference Include="..\WWebsiteInteration\WWebsiteInteration.csproj">
       <Project>{797f2e6c-a030-4dac-877d-7a5016e4033a}</Project>
       <Name>WWebsiteInteration</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameLanchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

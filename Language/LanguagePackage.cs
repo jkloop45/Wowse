@@ -5,51 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
+using System.Globalization;
+using NGettext;
 
 namespace Language
 {
     public class LanguagePackage
     {
-        Dictionary<string, string> LanguageStrMap = new Dictionary<string, string>();
-        XmlReader mXmlReader;
-        
-        public LanguagePackage(string path)
+        ICatalog catalog;
+        public LanguagePackage(string path, string lang)
         {
-            if (File.Exists(path))
-            {
-                mXmlReader = XmlReader.Create(new FileStream(path, FileMode.Open));
-            } else
-                throw new Exception("File did not exist!");
+            catalog = new Catalog(@"global", path, new CultureInfo(lang));
         }
-
-        public string this[string sign]{
+        public string this[string sign]
+        {
             get
             {
-                return LanguageStrMap[sign];
-            }
-        }
-
-        public int Count { get { return LanguageStrMap.Count; } }
-
-        public void LoadPackage()
-        {
-            while (mXmlReader.Read())
-            {
-                if(mXmlReader.LocalName != "" && mXmlReader.LocalName != "xml")
-                {
-                    string localName;
-                    if (mXmlReader.NodeType == XmlNodeType.Element)
-                    {
-                        localName = mXmlReader.LocalName;
-                        while (mXmlReader.NodeType != XmlNodeType.Text)
-                        {
-                            if (mXmlReader.NodeType == XmlNodeType.Element)
-                                localName = mXmlReader.LocalName;
-                            mXmlReader.Read();
-                        }
-                        LanguageStrMap.Add(localName, mXmlReader.Value);
-                    }
-                }
+                return catalog.GetString(sign);
             }
         }
     }

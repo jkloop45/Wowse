@@ -18,7 +18,7 @@ namespace Language
         public const string GameSettings = "GameSettings";
         public const string Settings = "Settings";
         public const string CantConnect = "CanNotConnect";
-        public const string LaunchGame = "LaunchGame";
+        public const string LanchGame = "LanchGame";
         public const string News = "News";
         public const string Events = "Events";
         public const string Account = "Account";

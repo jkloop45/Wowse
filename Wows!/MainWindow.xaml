@@ -7,7 +7,7 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" 
         xmlns:Controls="clr-namespace:Controls;assembly=Controls" xmlns:NavigationBox="clr-namespace:Controls.NavigationBox;assembly=Controls" x:Class="WowsExclamation.MainWindow" 
         mc:Ignorable="d"
-        Title="Wows!" Height="610" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowsTransparency="True">
+        Title="Wows!" Height="610" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowsTransparency="True" Icon="logo.ico">
     <Grid>
         <Grid x:Name="blur">
             <Grid.Effect>
@@ -22,15 +22,20 @@
                 <Grid.Background>
                     <SolidColorBrush Color="Black" Opacity="0.1"/>
                 </Grid.Background>
-                <Grid x:Name="userInfo" Margin="0,0,0,249">
+                <Grid x:Name="userInfo" Margin="0,0,0,365">
                     <Controls:AvatarBox x:Name="avatar" HorizontalAlignment="Left" Height="83" Margin="35,94,0,0" VerticalAlignment="Top" Width="83"/>
-                    <TextBlock x:Name="userName" Margin="10,182,10,78" Foreground="White" TextAlignment="Center" MouseDown="userName_MouseDown" MouseEnter="userName_MouseEnter" MouseLeave="userName_MouseLeave" MouseUp="userName_MouseUp">Login</TextBlock>
+                    <TextBlock x:Name="userName" Margin="10,182,10,0" Foreground="White" TextAlignment="Center" MouseDown="userName_MouseDown" MouseEnter="userName_MouseEnter" MouseLeave="userName_MouseLeave" MouseUp="userName_MouseUp">Login</TextBlock>
                 </Grid>
-                <Grid x:Name="navigation" Margin="0,340,0,0">
-                    <NavigationBox:NavigationBox x:Name="mNavigationBox" HorizontalAlignment="Left" Height="308" VerticalAlignment="Top" Width="150"/>
+                <Grid x:Name="navigation" Margin="0,300,0,89">
+                    <NavigationBox:NavigationBox x:Name="mNavigationBox" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="150"/>
                 </Grid>
                 <Grid x:Name="body" Margin="150,0,-850,0">
                 </Grid>
+                <Controls:ImageBtn x:Name="gameLanchBtn" Content="LANCH" HorizontalAlignment="Left" Height="74" Margin="10,505,0,0" VerticalAlignment="Top" Width="130" Foreground="White" FontSize="20">
+                    <Controls:ImageBtn.Background>
+                        <ImageBrush ImageSource="GameLanchIcon.png" Stretch="Uniform"/>
+                    </Controls:ImageBtn.Background>
+                </Controls:ImageBtn>
             </Grid>
             <Grid x:Name="titleBar" Margin="0,0,0,589" MouseMove="Window_MouseMove">
                 <Grid.Background>

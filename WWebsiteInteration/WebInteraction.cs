@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web;
 using System.IO;
 using System.Windows.Media.Imaging;
+using Logcat;
 
 namespace WWebsiteInteration
 {
@@ -15,35 +16,55 @@ namespace WWebsiteInteration
     {
         static public BitmapImage GetImage(string url)
         {
-            var wc = new WebClient();
-            var image = new BitmapImage();
-            using (var ms = new MemoryStream(wc.DownloadData(url)))
+            try
             {
-                image.BeginInit();
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.StreamSource = ms;
-                image.EndInit();
+                var wc = new WebClient();
+                var image = new BitmapImage();
+                using (var ms = new MemoryStream(wc.DownloadData(url)))
+                {
+                    image.BeginInit();
+                    image.CacheOption = BitmapCacheOption.OnLoad;
+                    image.StreamSource = ms;
+                    image.EndInit();
+                }
+                return image;
+            }catch(Exception ex)
+            {
+                Loger.Log(ex.ToString());
             }
-            return image;
+            return null;
         }
         static public string GET(string url, ref CookieContainer cookie)
         {
-            HttpWebRequest request;
-            request = (HttpWebRequest)WebRequest.Create(url);
-            request.CookieContainer = cookie;
-            request.Method = "GET";
-            request.ContentType = "text/html;charset=UTF-8";
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream myResponseStream = response.GetResponseStream();
-            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
-            string retString = myStreamReader.ReadToEnd();
-            myStreamReader.Close();
-            return retString;
+            try
+            {
+                HttpWebRequest request;
+                request = (HttpWebRequest)WebRequest.Create(url);
+                request.CookieContainer = cookie;
+                request.Method = "GET";
+                request.ContentType = "text/html;charset=UTF-8";
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream myResponseStream = response.GetResponseStream();
+                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+                string retString = myStreamReader.ReadToEnd();
+                myStreamReader.Close();
+                return retString;
+            }catch(Exception ex)
+            {
+                Loger.Log(ex.ToString());
+            }
+            return string.Empty;
         }
         static public string GET(string url)
         {
-            HttpClient request = new HttpClient();
-            return request.GetStringAsync(url).Result;
+            try
+            {
+                HttpClient request = new HttpClient();
+                return request.GetStringAsync(url).Result;
+            } catch (Exception e){
+                Loger.Log(e.ToString());
+                return "";
+            }
         }
         static public string POST(string url, string postDataStr, ref CookieContainer cookie)
         {

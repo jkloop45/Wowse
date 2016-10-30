@@ -10,13 +10,13 @@ namespace WWebsiteInteration.RecordQuery
     {
         public Ship(string cd)
         {
-            this.cd = cd;
+            this.Cd = cd;
         }
         public string Cd { get; set; }
         public string Name { get; set; }
         public string Alias { get; set; }
         public string Country { get; set; }
         public string Type { get; set; }
-        public string Lvl { get; set; }
+        public int Lvl { get; set; }
     }
 }

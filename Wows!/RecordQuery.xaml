@@ -7,7 +7,7 @@
         xmlns:controls ="clr-namespace:Controls;assembly=Controls"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="RecordQuery" Height="691.321" Width="230" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="Manual" Focusable="False">
+        Title="RecordQuery" Height="676.321" Width="241" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="Manual" Focusable="False" Loaded="Window_Loaded" Topmost="True" ShowInTaskbar="False" ShowActivated="False" Closing="Window_Closing">
     <Window.Background>
         <SolidColorBrush Color="Black" Opacity="0.3"/>
     </Window.Background>
@@ -17,37 +17,63 @@
             <RowDefinition Height="18*"/>
             <RowDefinition Height="632*"/>
         </Grid.RowDefinitions>
-        <TextBlock RenderTransformOrigin="0.5,0.5" Margin="10,1,200,3" TextAlignment="Center" Grid.Row="1" Foreground="White">ID:</TextBlock>
-        <controls:HintTextBox Grid.Row="1" Margin="35,0,10,0" Hint="南区按Enter, 北区按Ctrl+Enter" Foreground="White" HintForground="#FFF0F0F0" TboxForeground="White"/>
-        <Grid x:Name="recordShow" Margin="0,0,0,502" Grid.Row="1" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
-            <TextBlock Margin="0,36,0,51" TextAlignment="Center" Foreground="White">Percentage Of Victory</TextBlock>
-            <lvc:Gauge x:Name="winningPie" Uses360Mode="True" Margin="0,56,0,-89" From="0" To="100" Value="0">
-                <lvc:Gauge.GaugeBackground>
-                    <SolidColorBrush Color="#FF0078FF"/>
-                </lvc:Gauge.GaugeBackground>
-            </lvc:Gauge>
-            <lvc:CartesianChart Margin="0,242,0,-300">
-                <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Foreground="DodgerBlue" Position="RightTop">
-                        <lvc:Axis.Separator>
-                            <lvc:Separator IsEnabled="False" Step="20"></lvc:Separator>
-                        </lvc:Axis.Separator>
-                    </lvc:Axis>
-                    <lvc:Axis Foreground="IndianRed" Position="LeftBottom"/>
-                </lvc:CartesianChart.AxisY>
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis x:Name="shipLevelAxis" Foreground="White" >
-                        <lvc:Axis.Separator>
-                            <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
-                        </lvc:Axis.Separator>
-                    </lvc:Axis>
-                </lvc:CartesianChart.AxisX>
-                <lvc:CartesianChart.Series>
-                    <lvc:LineSeries x:Name="shipPov" Values="100,90,80,70,60,50,40,30,20,0" Fill="Transparent" StrokeThickness="4" 
+        <TextBlock x:Name="idHint" RenderTransformOrigin="0.5,0.5" Margin="10,1,200,3" TextAlignment="Center" Grid.Row="1" Foreground="White">ID:</TextBlock>
+        <TextBlock x:Name="rankingPieHint" TextAlignment="Center" Foreground="White" Margin="0,43,0,535" Grid.Row="2" FontSize="15">Rinking</TextBlock>
+        <lvc:Gauge x:Name="rankingPie" Margin="0,0,0,447" From="0" To="100" Value="0" Uses360Mode="True" OverridesDefaultStyle="True" Foreground="White" Grid.Row="1" Grid.RowSpan="2">
+            <lvc:Gauge.GaugeBackground>
+                <SolidColorBrush Color="#FF0078FF"/>
+            </lvc:Gauge.GaugeBackground>
+        </lvc:Gauge>
+        <lvc:CartesianChart x:Name="shipLvl"  Margin="0,176,0,225" Grid.Row="2">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Foreground="DodgerBlue" Position="RightTop">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="False" Step="20"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+                <lvc:Axis Foreground="IndianRed" Position="LeftBottom"/>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis x:Name="shipLevelAxis" Foreground="White" >
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries x:Name="shipPov" Values="0,0,0,0,0,0,0,0,0,0" Fill="Transparent" StrokeThickness="4" 
                                 Panel.ZIndex="2" PointGeometry="{x:Null}" ScalesYAt="0" />
-                    <lvc:ColumnSeries x:Name="shipLevels" Values="1,2,3,4,5,6,7,8,9,10" Panel.ZIndex="1" ScalesYAt="1"/>
-                </lvc:CartesianChart.Series>
-            </lvc:CartesianChart>
-        </Grid>
+                <lvc:ColumnSeries x:Name="shipLevels" Values="0,0,0,0,0,0,0,0,0,0" Panel.ZIndex="1" ScalesYAt="1"/>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
+        <lvc:PieChart x:Name="shipTypes"  InnerRadius="55" Margin="0,398,0,0" LegendLocation="Bottom" FontSize="10" Grid.Row="2" Foreground="White">
+            <lvc:PieChart.DataTooltip>
+                <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+            </lvc:PieChart.DataTooltip>
+            <lvc:PieChart.Series>
+                <lvc:PieSeries x:Name="cvCount" Title="CV" Values="0" DataLabels="True">
+                    <lvc:PieSeries.Fill>
+                        <SolidColorBrush Color="#FF0288D1" Opacity="1"/>
+                    </lvc:PieSeries.Fill>
+                </lvc:PieSeries>
+                <lvc:PieSeries x:Name="caCount" Title="CA" Values="0" DataLabels="True">
+                    <lvc:PieSeries.Fill>
+                        <SolidColorBrush Color="#FFFEC007" Opacity="1"/>
+                    </lvc:PieSeries.Fill>
+                </lvc:PieSeries>
+                <lvc:PieSeries x:Name="bbCount" Title="BB" Values="0" DataLabels="True">
+                    <lvc:PieSeries.Fill>
+                        <SolidColorBrush Color="#FF757575" Opacity="1"/>
+                    </lvc:PieSeries.Fill>
+                </lvc:PieSeries>
+                <lvc:PieSeries x:Name="ddCount" Title="DD" Values="0" DataLabels="True">
+                    <lvc:PieSeries.Fill>
+                        <SolidColorBrush Color="#FF00C853" Opacity="1"/>
+                    </lvc:PieSeries.Fill>
+                </lvc:PieSeries>
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
+        <controls:HintTextBox x:Name="idInput" Grid.Row="1" Margin="35,0,10,0" Hint="南区按Enter, 北区按Ctrl+Enter" Foreground="White" HintForground="#FFF0F0F0" TboxForeground="White" KeyUp="idInput_KeyUp" IsTabStop="True" TabIndex="1" Focusable="True"/>
+        <TextBlock x:Name="idLbl"  TextAlignment="Center" Margin="0,10,0,0" FontSize="20" Foreground="White">UserName</TextBlock>
     </Grid>
 </Window>

@@ -12,7 +12,13 @@ namespace LeanCloudInteraction
     {
         static public void Initialize()
         {
-            AVClient.Initialize(Consts.APP_ID,Consts.APP_KEY);
+            try
+            {
+                AVClient.Initialize(Consts.APP_ID, Consts.APP_KEY);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         static public async Task<AVUser> SignUp(string userName, string password, string email)

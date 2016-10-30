@@ -11,20 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media.Animation;
 using AVOSCloud;
 using Language;
 using System.Text.RegularExpressions;
+using Logcat;
 
 namespace WowsExclamation
 {
     /// <summary>
     /// SignInUp.xaml 的交互逻辑
     /// </summary>
-    public partial class SignInUp : Window
+    public partial class SignInUp : UserControl
     {
         bool IsSignUp = false;
         MainWindow mWindow = null;
+        public MashPopup mp = null;
         bool IN_usernamePassed, IN_passwordPassed, UP_usernamePassed, UP_passwordPassed, UP_emailPassed;
 
         private const string USERNAME_REGEX = @"[0-9a-zA-Z_]{4,16}";
@@ -34,7 +37,9 @@ namespace WowsExclamation
         public SignInUp(MainWindow mWindow)
         {
             InitializeComponent();
+
             this.mWindow = mWindow;
+            
             IN_usernameHint.Text = mWindow.langPackage[LanguageSign.UserName];
             UP_usernameHint.Text = mWindow.langPackage[LanguageSign.UserName];
             IN_passwordHint.Text = mWindow.langPackage[LanguageSign.Password];
@@ -44,7 +49,6 @@ namespace WowsExclamation
             IN_cancleBtn.Content = mWindow.langPackage[LanguageSign.Cancle];
             IN_signinBtn.Content = mWindow.langPackage[LanguageSign.SignIn];
             UP_emailHint.Text = mWindow.langPackage[LanguageSign.Email];
-            this.Title = mWindow.langPackage[LanguageSign.SignUpOrSignIn];
             UP_usernameInput.Hint = mWindow.langPackage[LanguageSign.UsernameClaim];
             UP_passwordInput.Hint = mWindow.langPackage[LanguageSign.PasswordClaim];
         }
@@ -77,7 +81,12 @@ namespace WowsExclamation
             animation.To = new Thickness(0, signupPage.Margin.Top, 0, signupPage.Margin.Bottom);
             animation.DecelerationRatio = 1;
 
-            signupPage.BeginAnimation(MarginProperty, animation);
+            DoubleAnimation da = new DoubleAnimation();
+            da.To = 1;
+            signupPage.Visibility = Visibility.Visible;
+
+            signupPage.BeginAnimation(Grid.MarginProperty, animation);
+            signupPage.BeginAnimation(Grid.OpacityProperty, da);
         }
 
         private void Path_MouseDown(object sender, MouseButtonEventArgs e)
@@ -108,7 +117,12 @@ namespace WowsExclamation
             animation.To = new Thickness(signupPage.ActualWidth, signupPage.Margin.Top, -signupPage.ActualWidth, signupPage.Margin.Bottom);
             animation.AccelerationRatio = 1;
 
-            signupPage.BeginAnimation(MarginProperty, animation);
+            DoubleAnimation da = new DoubleAnimation();
+            da.To = 0;
+            da.Completed += (s, ev) => signupPage.Visibility = Visibility.Collapsed;
+
+            signupPage.BeginAnimation(Grid.MarginProperty, animation);
+            signupPage.BeginAnimation(Grid.OpacityProperty, da);
         }
 
         private async void IN_signinBtn_Click(object sender, RoutedEventArgs e)
@@ -122,7 +136,8 @@ namespace WowsExclamation
             {
                 var user = await LeanCloudInteraction.LeanCloudInteraction.SingIn(IN_usernameInput.Text, IN_passwordInput.Password);
                 this.mWindow.mUser = user;
-                this.Close();
+                //this.Close();
+                mp.Hide();
             }catch(AVException ex)
             {
                 switch ((int)ex.Code)
@@ -134,10 +149,10 @@ namespace WowsExclamation
                         System.Windows.Forms.MessageBox.Show(mWindow.langPackage[LanguageSign.UnPsError]);
                         break;
                     default:
-                        System.Windows.Forms.MessageBox.Show(ex.Message + " 错误代码:" + ((int)ex.Code).ToString() + "");
+                        System.Windows.Forms.MessageBox.Show(ex.Message + "\n 错误代码:" + ((int)ex.Code).ToString() + "");
                         break;
                 }
-                Loger.Loger.Log("Signin faild, code: " + ex.Code + "(" + (int)ex.Code + ")");
+                Loger.Log("Signin faild, code: " + ex.Code + "(" + (int)ex.Code + ")");
             }
             IN_usernameInput.IsEnabled = true;
             IN_passwordInput.IsEnabled = true;
@@ -152,7 +167,8 @@ namespace WowsExclamation
             {
                 var user = await LeanCloudInteraction.LeanCloudInteraction.SignUp(UP_usernameInput.Text, UP_passwordInput.Password, UP_emailInput.Text);
                 mWindow.mUser = user;
-                this.Close();
+                //this.Close();
+                mp.Hide();
             } catch (AVException ex)
             {
                 switch ((int)ex.Code)
@@ -167,16 +183,17 @@ namespace WowsExclamation
                         System.Windows.Forms.MessageBox.Show(mWindow.langPackage[LanguageSign.EmailAddressToken]);
                         break;
                     default:
-                        System.Windows.Forms.MessageBox.Show(ex.Message + " 错误代码:" + ((int)ex.Code).ToString() + "");
+                        System.Windows.Forms.MessageBox.Show(ex.Message + "\n 错误代码:" + ((int)ex.Code).ToString() + "");
                         break;
                 }
-                Loger.Loger.Log("Signup faild, code: " + ex.Code + "(" + (int)ex.Code + ")");
+                Loger.Log("Signup faild, code: " + ex.Code + "(" + (int)ex.Code + ")");
             }
         }
 
         private void cancleBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
+            mp.Hide();
         }
 
         private void IN_usernameInput_TextChanged(object sender, TextChangedEventArgs e)

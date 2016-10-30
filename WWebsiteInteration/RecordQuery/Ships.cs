@@ -9,48 +9,49 @@ using System.Text.RegularExpressions;
 
 namespace WWebsiteInteration.RecordQuery
 {
-    static class Ships
+    static public class Ships
     {
         const string SHIP_INFO_URL = @"http://rank.kongzhong.com/wows/scripts/ships.js";
-        static Dictionary<string, Ship> GetShips()
+        static public Dictionary<string, Ship> GetShips()
         {
             var result = new Dictionary<string, Ship>();
             var shipInfo = WebInteraction.GET(SHIP_INFO_URL);
-            shipInfo = shipInfo.Substring(14);
+            shipInfo = shipInfo.Substring(13);
             shipInfo = shipInfo.Replace(@"'", @"""");
 
             var reader = new JsonTextReader(new StringReader(shipInfo));
             while (reader.Read())
             {
-                if (Regex.Match(reader.Path, @"\d{10}").Value == reader.Path)
+                if (reader.Path != string.Empty && Regex.Match(reader.Path, @"\d{10}").Value == reader.Path)
                 {
-                    var ship = new Ship(reader.Path);
-                    reader.Read();
-                    while (reader.Path.Substring(0, 10) == ship.Cd)
+                    if(!result.ContainsKey(reader.Path))
                     {
-                        var s = reader.Path.Split('\\');
-                        switch (s[s.Length-1])
-                        {
-                            case "name":
-                                ship.Name = reader.ReadAsString();
-                                break;
-                            case "alias":
-                                ship.Alias = reader.ReadAsString();
-                                break;
-                            case "country":
-                                ship.Country = reader.ReadAsString();
-                                break;
-                            case "type":
-                                ship.Type = reader.ReadAsString();
-                                break;
-                            case "lvl":
-                                ship.Lvl = reader.ReadAsInt32();
-                                break;
-                        }
+                        var ship = new Ship(reader.Path);
+                        result.Add(ship.Cd, ship);
                     }
-                    result.Add(reader.Path, ship);
+                    continue;
+                }
+                var match = Regex.Match(reader.Path, @"(\d{10})\.(.+)");
+                switch (match.Groups[2].Value)
+                {
+                    case "name":
+                        result[match.Groups[1].Value].Name = reader.ReadAsString();
+                        break;
+                    case "alias":
+                        result[match.Groups[1].Value].Alias = reader.ReadAsString();
+                        break;
+                    case "country":
+                        result[match.Groups[1].Value].Country = reader.ReadAsString();
+                        break;
+                    case "type":
+                        result[match.Groups[1].Value].Type = reader.ReadAsString();
+                        break;
+                    case "lvl":
+                        result[match.Groups[1].Value].Lvl = reader.ReadAsInt32().Value;
+                        break;
                 }
             }
+            return result;
         }
     }
 }

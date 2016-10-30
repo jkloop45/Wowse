@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Media.Imaging;
 using System.IO;
-using Loger;
+using Logcat;
 
 namespace WWebsiteInteration
 {
@@ -55,7 +55,7 @@ namespace WWebsiteInteration
                         encoder.Save(filestream);
                     }
                 } catch(Exception ex) {
-                    Loger.Loger.Log(ex.Message);
+                    Loger.Log(ex.ToString());
                 }
             };
             return path;

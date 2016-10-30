@@ -52,15 +52,16 @@
     <Compile Include="RecordQuery\Actions\RecordQuerier.cs" />
     <Compile Include="RecordQuery\Resaults\DayInfoCollection.cs" />
     <Compile Include="RecordQuery\Resaults\QueryResult.cs" />
+    <Compile Include="RecordQuery\Resaults\ShipInfo.cs" />
     <Compile Include="RecordQuery\Resaults\ShipInfoCollection.cs" />
     <Compile Include="RecordQuery\Ship.cs" />
     <Compile Include="RecordQuery\Ships.cs" />
     <Compile Include="WebInteraction.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Loger\Loger.csproj">
+    <ProjectReference Include="..\Logcat\Logcat.csproj">
       <Project>{976d57ae-1d0f-4e6c-bf6c-0d7cc713ffbd}</Project>
-      <Name>Loger</Name>
+      <Name>Logcat</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

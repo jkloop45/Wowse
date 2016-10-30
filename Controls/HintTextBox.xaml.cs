@@ -51,6 +51,7 @@ namespace Controls
             get { return hint.Foreground; }
             set { hint.Foreground = value; }
         }
+
         public event TextChangedEventHandler TextChanged;
 
         public HintTextBox()
@@ -60,7 +61,12 @@ namespace Controls
 
         private void tBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextChanged(this, e);
+            TextChanged?.Invoke(this, e);
+        }
+
+        private void UserControl_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tBox.Focus();
         }
     }
 }

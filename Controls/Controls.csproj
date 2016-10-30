@@ -60,6 +60,9 @@
     <Compile Include="HintTextBox.xaml.cs">
       <DependentUpon>HintTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageBtn.xaml.cs">
+      <DependentUpon>ImageBtn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NavigationBox\NavigationBox.xaml.cs">
       <DependentUpon>NavigationBox.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HintTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageBtn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
