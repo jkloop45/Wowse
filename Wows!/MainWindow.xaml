@@ -31,11 +31,11 @@
                 </Grid>
                 <Grid x:Name="body" Margin="150,0,-850,0">
                 </Grid>
-                <Controls:ImageBtn x:Name="gameLanchBtn" Content="LANCH" HorizontalAlignment="Left" Height="74" Margin="10,505,0,0" VerticalAlignment="Top" Width="130" Foreground="White" FontSize="20">
-                    <Controls:ImageBtn.Background>
-                        <ImageBrush ImageSource="GameLanchIcon.png" Stretch="Uniform"/>
-                    </Controls:ImageBtn.Background>
-                </Controls:ImageBtn>
+                <Button x:Name="gameLanchBtn" Content="LANCH" HorizontalAlignment="Left" Height="74" Margin="10,505,0,0" VerticalAlignment="Top" Width="130" Foreground="White" FontSize="20">
+                    <Button.Background>
+                        <ImageBrush ImageSource="GameLanchIcon.png"/>
+                    </Button.Background>
+                </Button>
             </Grid>
             <Grid x:Name="titleBar" Margin="0,0,0,589" MouseMove="Window_MouseMove">
                 <Grid.Background>
@@ -48,6 +48,9 @@
                 <TextBlock x:Name="title" Foreground="White" Margin="10,4,0,3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="966" Height="14">Wows!</TextBlock>
                 <Grid x:Name="closeBtn" Grid.Column="1" MouseLeave="closeBtn_MouseLeave" MouseEnter="closeBtn_MouseEnter" MouseDown="closeBtn_MouseDown" MouseUp="closeBtn_MouseUp">
                     <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="White" Margin="8,6,7,6" Stretch="Fill" />
+                </Grid>
+                <Grid x:Name="minisizeBtn" Margin="952,0,0,0" MouseDown="minisizeBtn_MouseDown" MouseEnter="minisizeBtn_MouseEnter" MouseLeave="minisizeBtn_MouseLeave" MouseUp="minisizeBtn_MouseUp">
+                    <Path Data="M20,14H4V10H20" Fill="Gainsboro" Margin="8,14,7,6" Stretch="Fill" />
                 </Grid>
             </Grid>
         </Grid>

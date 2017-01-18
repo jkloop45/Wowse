@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Loger")]
+[assembly: AssemblyTitle("PluginSupport")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Loger")]
+[assembly: AssemblyProduct("PluginSupport")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("976d57ae-1d0f-4e6c-bf6c-0d7cc713ffbd")]
+[assembly: Guid("1e03adbd-0d3a-42d3-9d2c-95dc81480180")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

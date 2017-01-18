@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logcat", "Logcat\Logcat.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setting", "Settings\Setting.csproj", "{B8E5CD37-2E58-48FF-AFFD-81189A3623B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPluginSupport", "PluginSupport\WPluginSupport.csproj", "{1E03ADBD-0D3A-42D3-9D2C-95DC81480180}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B8E5CD37-2E58-48FF-AFFD-81189A3623B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8E5CD37-2E58-48FF-AFFD-81189A3623B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8E5CD37-2E58-48FF-AFFD-81189A3623B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E03ADBD-0D3A-42D3-9D2C-95DC81480180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E03ADBD-0D3A-42D3-9D2C-95DC81480180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E03ADBD-0D3A-42D3-9D2C-95DC81480180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E03ADBD-0D3A-42D3-9D2C-95DC81480180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -81,6 +81,7 @@ namespace WWebsiteInteration.RecordQuery.Actions
                     }
                 }
                 if (match.Groups[2].Value == "wins")
+
                 {
                     var lvl = ships[thisId].Lvl;
                     shipPov[--lvl] += reader.ReadAsInt32().Value;

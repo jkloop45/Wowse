@@ -12,6 +12,10 @@ namespace Logcat
         static private StreamWriter mStream;
         static public void Log(string info)
         {
+            Log(info, LogLevel.Infomation);
+        }
+        static public void Log(string info, LogLevel level)
+        {
             if (mStream == null)
             {
                 try
@@ -24,7 +28,9 @@ namespace Logcat
                     Environment.Exit(1);
                 }
             }
-            var log = "[" + DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString() + "] " + info;
+            var date = "[" + DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString() + "]\t";
+            var logLevel ="["+ Enum.GetName(typeof(LogLevel), level)+"]\t\t";
+            var log = date + logLevel + info;
             mStream.WriteLine(log);
             mStream.Flush();
         }
@@ -34,5 +40,11 @@ namespace Logcat
             mStream.WriteLine();
             mStream = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.LocalApp‌​licationData) + @"\Wows!\wowse.log", true);
         }
+    }
+    public enum LogLevel
+    {
+        Infomation,
+        Worning,
+        Error,
     }
 }

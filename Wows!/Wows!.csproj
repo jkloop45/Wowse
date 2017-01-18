@@ -76,6 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindowUI.cs" />
+    <Compile Include="PluginManager.cs" />
     <Compile Include="RecordQuery.xaml.cs">
       <DependentUpon>RecordQuery.xaml</DependentUpon>
     </Compile>
@@ -148,6 +150,10 @@
     <ProjectReference Include="..\Logcat\Logcat.csproj">
       <Project>{976d57ae-1d0f-4e6c-bf6c-0d7cc713ffbd}</Project>
       <Name>Logcat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginSupport\WPluginSupport.csproj">
+      <Project>{1e03adbd-0d3a-42d3-9d2c-95dc81480180}</Project>
+      <Name>WPluginSupport</Name>
     </ProjectReference>
     <ProjectReference Include="..\WWebsiteInteration\WWebsiteInteration.csproj">
       <Project>{797f2e6c-a030-4dac-877d-7a5016e4033a}</Project>
